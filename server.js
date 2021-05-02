@@ -8,14 +8,20 @@ server.listen(5000, () => {
     console.log('Servidor online!')
 });
 
-
 const testArray = {
     testKey: 'testValue'
 };
 
-
 server.get('/api', (req, res) => {
-    console.log('/api accedido')
+    counter()
     res.json(testArray)
 });
 
+// -----------------
+
+let counterVar = 0;
+
+function counter() {
+    counterVar = counterVar + 1
+    console.log('/api accedido. Requests hasta ahora: ', counterVar)
+};
